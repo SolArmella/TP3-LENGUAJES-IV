@@ -1,3 +1,4 @@
+import "./ImageUploader.css";
 import { useState } from "react";
 
 function ImageUploader() {
@@ -6,10 +7,8 @@ function ImageUploader() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-
     if (!file) return;
 
-    // Validar que sea una imagen
     if (!file.type.startsWith("image/")) {
       setError("⚠️ El archivo no es una imagen válida");
       setImage(null);
@@ -20,46 +19,30 @@ function ImageUploader() {
     setImage(URL.createObjectURL(file));
   };
 
-return (
-  <div style={{
-    maxWidth: "400px",
-    margin: "50px auto",
-    padding: "20px",
-    border: "2px dashed #888",
-    borderRadius: "12px",
-    textAlign: "center",
-    backgroundColor: "#f9f9f9"
-  }}>
-    <h2 style={{ marginBottom: "20px", color: "#333" }}>Subir Imagen</h2>
-    
-    <input 
-      type="file" 
-      accept="image/*" 
-      onChange={handleFileChange}
-      style={{ margin: "10px 0", cursor: "pointer" }}
-    />
+  return (
+    <div className="uploader-page">
+      <h1>Validador de imágenes</h1>
+      <p>Subir Imagen</p>
 
-    {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
-
-    {image && (
-      <div>
-        <h3 style={{ marginTop: "20px", color: "#555" }}>Vista previa:</h3>
-        <img 
-          src={image} 
-          alt="preview" 
-          style={{ 
-            width: "100%", 
-            maxWidth: "300px", 
-            borderRadius: "10px", 
-            marginTop: "10px",
-            border: "1px solid #ccc"
-          }} 
+      <div className="uploader-container">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="file-input"
         />
-      </div>
-    )}
-  </div>
-);
 
+        {error && <p className="error-text">{error}</p>}
+
+        {image && (
+          <div className="preview">
+            <h3>Vista previa:</h3>
+            <img src={image} alt="preview" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default ImageUploader;
