@@ -1,0 +1,60 @@
+.servicios-page {
+  background: #f5f7fa; /* mismo fondo que contacto */
+  min-height: calc(100vh - 80px);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicios-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.servicio-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 320px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: scale(1.03);
+}
+
+.servicio-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.servicio-card h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.servicio-card p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.precio {
+  font-size: 1.1rem;
+  color: #6366f1;
+  font-weight: bold;
+}
